@@ -11,7 +11,7 @@ pipeline {
 		stage('Build image') {
                         agent {
                                 docker {
-                                                image 'jenkins/agent'
+                                                image 'docker:dind'
                                 }
                         }
 			steps {
@@ -31,7 +31,7 @@ pipeline {
 		stage('Test Container') {
                         agent {
                                 docker {
-                                                image 'jenkins/agent'
+                                                image 'docker:dind'
                                 }
                         }
 			steps {
@@ -47,7 +47,7 @@ pipeline {
 		stage('Clean Container') {
                         agent {
                                 docker {
-                                                image 'jenkins/agent'
+                                                image 'docker:dind'
                                 }
                         }
 			steps {
@@ -59,7 +59,7 @@ pipeline {
 		stage('Push image on dockerhub') {
                         agent {
                                 docker {
-                                                image 'jenkins/agent'
+                                                image 'docker:dind'
                                 }
                         }
 			environment {
