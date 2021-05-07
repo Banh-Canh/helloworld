@@ -94,6 +94,24 @@ pipeline {
 				}
 			}
 		}
+		stage('Test YAML') {
+			agent {
+				docker {
+						image 'docker:dind'
+				}
+			}
+			steps {
+				script {
+					sh '''
+					docker run --rm -it -v "$(pwd)":/data cytopia/yamllint ansible/install-docker.yml
+					docker run --rm -it -v "$(pwd)":/data cytopia/yamllint ansible/client.yml
+					docker run --rm -it -v "$(pwd)":/data cytopia/yamllint ansible/group_vars/client.yml
+					docker run --rm -it -v "$(pwd)":/data cytopia/yamllint ansible/helloworld.yml
+					docker run --rm -it -v "$(pwd)":/data cytopia/yamllint ansible/test.yml
+					'''
+				}
+			}
+		}
 		stage('Ansible deploy') {
 			agent { 
 				docker {
