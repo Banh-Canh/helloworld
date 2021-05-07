@@ -8,6 +8,19 @@ pipeline {
 	}
 	agent none
 	stages {
+		agent {
+			docker {
+					image 'docker:dind'
+			}
+		}
+		stage('Test Go') {
+			agent any
+			steps {
+				script {
+					sh 'docker run --rm -v $(pwd):/data cytopia/golint main.go'
+				}
+			}
+		}
 		stage('Build image') {
                         agent {
                                 docker {
