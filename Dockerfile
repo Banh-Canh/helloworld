@@ -1,3 +1,4 @@
+# hadolint ignore=DL3022,DL3045
 FROM golang:1.9.2
 WORKDIR /go/src/github.com/kelseyhightower/app/
 COPY . .
