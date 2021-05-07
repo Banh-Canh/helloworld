@@ -29,11 +29,7 @@ pipeline {
 			}
 		}
 		stage('Test Container') {
-                        agent {
-                                docker {
-                                                image 'docker:dind'
-                                }
-                        }
+                        agent any
 			steps {
 				script {
 					sh '''
