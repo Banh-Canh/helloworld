@@ -94,21 +94,6 @@ pipeline {
 				}
 			}
 		}
-		stage('Test YAML') {
-			agent {
-				docker {
-						image 'docker:dind'
-				}
-			}
-			steps {
-				script {
-					sh '''
-					docker run --rm -i -v "$(pwd)":/data cytopia/yamllint .
-					docker run --rm -i -v "$(pwd)":/data cytopia/yamllint ansible
-					'''
-				}
-			}
-		}
 		stage('Ansible deploy') {
 			agent { 
 				docker {
