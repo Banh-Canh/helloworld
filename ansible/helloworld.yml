@@ -2,6 +2,14 @@
 - name: "alpinehelloworld installation"
   hosts: client
   tasks:
+    - name: Remove containers
+      docker_container:
+        name: "alpinehelloworld"
+        image: "banhcanh/helloworld"
+        ports: 80:80
+        state: absent
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
     - name: Create default containers
       docker_container:
         name: "alpinehelloworld"
