@@ -8,6 +8,20 @@ pipeline {
 	}
 	agent none
 	stages {
+                stage('Go lint') {
+                        agent {
+                                docker {
+                                                image 'cytopia/golint'
+                                }
+                        }
+                        steps {
+                                script {
+                                        sh '''
+                                        .
+                                        '''
+                                }
+                        }
+                }
 		stage('Build image') {
                         agent {
                                 docker {
