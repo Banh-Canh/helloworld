@@ -76,7 +76,7 @@ pipeline {
 			}
                         agent {
                                 docker {
-                                                image 'heroku/heroku'
+                                                image 'heroku/heroku:20'
                                 }
                         }
 			environment {
@@ -111,7 +111,7 @@ pipeline {
 			}
                         agent {
                                 docker {
-                                                image 'heroku/heroku'
+                                                image 'heroku/heroku:20'
                                 }
                         }
 			environment {
