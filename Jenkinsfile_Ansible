@@ -16,7 +16,7 @@ pipeline {
 			}
 			steps {
 				script {
-					sh 'docker run --rm -v $(pwd):/data cytopia/golint main.go'
+					sh 'docker run --rm -v "$(pwd)":/data cytopia/golint main.go'
 				}
 			}
 		}		
