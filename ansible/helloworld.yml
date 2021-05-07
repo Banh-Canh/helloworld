@@ -12,6 +12,7 @@
         ansible_python_interpreter: /usr/bin/python3
     - name: Create default containers
       docker_container:
+        pull: true
         name: "alpinehelloworld"
         image: "banhcanh/helloworld"
         ports: 80:80
