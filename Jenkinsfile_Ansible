@@ -8,16 +8,27 @@ pipeline {
 	}
 	agent none
 	stages {
-		agent {
-			docker {
-					image 'docker:dind'
-			}
-		}
 		stage('Test Go') {
-			agent any
+			agent {
+				docker {
+						image 'docker:dind'
+				}
+			}
 			steps {
 				script {
 					sh 'docker run --rm -v $(pwd):/data cytopia/golint main.go'
+				}
+			}
+		}		
+		stage('Test Dockerfile') {
+			agent {
+				docker {
+						image 'docker:dind'
+				}
+			}
+			steps {
+				script {
+					sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
 				}
 			}
 		}
