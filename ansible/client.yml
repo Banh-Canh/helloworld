@@ -1,0 +1,6 @@
+client:
+  hosts:
+    staging:
+      ansible_host: 192.168.174.132
+    prod:
+      ansible_host: 192.168.174.133
