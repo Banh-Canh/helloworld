@@ -103,11 +103,8 @@ pipeline {
 			steps {
 				script {
 					sh '''
-					docker run --rm -i -v "$(pwd)":/data cytopia/yamllint ansible/install-docker.yml
-					docker run --rm -i -v "$(pwd)":/data cytopia/yamllint ansible/client.yml
-					docker run --rm -i -v "$(pwd)":/data cytopia/yamllint ansible/group_vars/client.yml
-					docker run --rm -i -v "$(pwd)":/data cytopia/yamllint ansible/helloworld.yml
-					docker run --rm -i -v "$(pwd)":/data cytopia/yamllint ansible/test.yml
+					docker run --rm -i -v "$(pwd)":/data cytopia/yamllint .
+					docker run --rm -i -v "$(pwd)":/data cytopia/yamllint ansible
 					'''
 				}
 			}
