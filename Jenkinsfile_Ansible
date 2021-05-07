@@ -28,7 +28,7 @@ pipeline {
 			}
 			steps {
 				script {
-					sh 'docker run --rm -i hadolint/hadolint --ignore DL3022 --ignore DL3045 < Dockerfile'
+					sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
 				}
 			}
 		}
