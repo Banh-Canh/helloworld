@@ -24,7 +24,7 @@ pipeline {
 			agent any
 			steps {
 				script {
-					sh 'docker run -it --name ${IMAGE_NAME} -p 80:80 -d ${DOCKERHUB_LOGIN}/${IMAGE_NAME}:${IMAGE_TAG}'
+					sh 'docker run -it --name ${IMAGE_NAME} -p 81:80 -d ${DOCKERHUB_LOGIN}/${IMAGE_NAME}:${IMAGE_TAG}'
 				}
 			}
 		}
