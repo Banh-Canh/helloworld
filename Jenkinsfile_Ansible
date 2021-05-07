@@ -28,7 +28,7 @@ pipeline {
 			}
 			steps {
 				script {
-					sh 'docker run --rm -i -v "$(pwd)"/hadolint.yml:/root/.config/hadolint.yaml hadolint/hadolint < Dockerfile'
+					sh 'docker run --rm -i -v "$(pwd)"/hadolint.yaml:/root/.config/hadolint.yaml hadolint/hadolint < Dockerfile'
 				}
 			}
 		}
